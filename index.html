@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Чек-лист перед моделированием</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1b2a47;
+    padding: 12px;
+  }
+  .card {
+    max-width: 720px;
+    margin: 0 auto;
+    border: 2px solid #2f6db5;
+    border-radius: 22px;
+    padding: 30px 18px 14px;
+    background: #ffffff;
+  }
+  h1 {
+    margin: 0 12px 10px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1b2a47;
+  }
+  .subtitle {
+    margin: 0 12px 20px;
+    font-size: 15px;
+    color: #7d8799;
+  }
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .item label {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 16px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color .15s ease;
+  }
+  .item:nth-child(odd) label { background: #edf0f4; }
+  .item label:hover { background: #e3e9f1; }
+
+  /* настоящий чекбокс скрыт визуально, но доступен для клавиатуры и экранных дикторов */
+  .item input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+  }
+  .box {
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    margin-top: 2px;
+    border: 2px solid #2f6db5;
+    border-radius: 6px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .15s ease, border-color .15s ease;
+  }
+  .box svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: scale(.6);
+    transition: opacity .15s ease, transform .15s ease;
+  }
+  .item input:checked + .box { background: #2f6db5; }
+  .item input:checked + .box svg { opacity: 1; transform: scale(1); }
+  .item input:focus-visible + .box {
+    outline: 3px solid rgba(47, 109, 181, .35);
+    outline-offset: 2px;
+  }
+
+  .text { display: flex; flex-direction: column; gap: 6px; }
+  .title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1b2a47;
+  }
+  .hint {
+    font-size: 14px;
+    color: #7d8799;
+    line-height: 1.4;
+  }
+
+  .note {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: #dff1ee;
+    text-align: center;
+    font-size: 15px;
+    color: #1b2a47;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 22px 10px 10px; border-radius: 16px; }
+    h1 { font-size: 22px; }
+    .item label { gap: 14px; padding: 14px 12px; }
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1>Чек-лист перед моделированием</h1>
+    <p class="subtitle">Ответьте до того, как нарисуете первую фигуру</p>
+
+    <ul class="list">
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Цель модели</span><span class="hint">Зачем нужна модель и кто будет её читать?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Название</span><span class="hint">Как называется процесс?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Начало</span><span class="hint">Что запускает процесс?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Конец</span><span class="hint">Каким результатом он заканчивается и у кого этот результат?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Входы и выходы</span><span class="hint">Что процесс получает и что отдаёт?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Ресурсы</span><span class="hint">Что нужно для работы: системы, регламенты, информация?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Участники</span><span class="hint">Кто выполняет работу?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Владелец</span><span class="hint">Кто отвечает за процесс целиком?</span></span>
+      </label></li>
+
+      <li class="item"><label>
+        <input type="checkbox">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="text"><span class="title">Уровень детализации</span><span class="hint">Верхний уровень, подпроцессы или действия исполнителей?</span></span>
+      </label></li>
+    </ul>
+
+    <div class="note">Нет ответа? Это вопрос к заказчику, а не повод додумать.</div>
+  </main>
+</body>
+</html>
